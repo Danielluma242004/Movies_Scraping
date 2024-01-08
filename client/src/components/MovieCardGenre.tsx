@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMovies } from "../api/movies.api"; // Importa la función getMovies desde el archivo de la API
+import { getMoviesByGenre } from "../api/movies.api";
 import { Movie } from "../types"; // Importa el tipo Movie desde el archivo de tipos
 
 // Define una interfaz para las propiedades del componente MovieCard
@@ -8,7 +8,7 @@ interface MovieCardProps {
 }
 
 // Define el componente funcional MovieCard
-export function MovieCard({ movieQuery }: MovieCardProps) {
+export function MovieCardbyGenre({ movieQuery }: MovieCardProps) {
   // Utiliza el estado local para gestionar la lista de películas, el estado de carga y los errores
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ export function MovieCard({ movieQuery }: MovieCardProps) {
         }
 
         setLoading(true); // Establece el estado de carga como true
-        const response = await getMovies(movieQuery); // Realiza la llamada a la API para obtener películas
+        const response = await getMoviesByGenre(movieQuery); // Realiza la llamada a la API para obtener películas
         setMovies(response); // Actualiza el estado con las películas obtenidas
       } catch (error) {
         console.error("Error cargando películas: ", error);
@@ -80,10 +80,19 @@ export function MovieCard({ movieQuery }: MovieCardProps) {
               {movie.image && <img src={movie.image} alt={movie.title} />}{" "}
               <div className="ml-4">
                 <h3 className="font-bold">{movie.title}</h3>
-                <p className="text-zinc-500">{movie.year}</p>
-                <p className="text-zinc-500">{movie.cast}</p>
+                <div className="flex">
+                  <p className="text-zinc-500">{movie.year}</p>
+                  <p className="text-zinc-500">{movie.duration}</p>
+                  <p className="text-zinc-500">{movie.rating}</p>
+                </div>
+                <div className="flex">
+                  <p className="text-zinc-500">{movie.stars}</p>
+                  <p className="text-zinc-500">{movie.metascore}</p>
+                </div>
               </div>
             </div>
+            <p className="text-zinc-500">{movie.movie_description}</p>
+            <p className="text-zinc-500">{movie.vots}</p>
             <hr className="mt-1" />
           </div>
         ))}

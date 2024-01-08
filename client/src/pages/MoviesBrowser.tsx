@@ -26,6 +26,7 @@ export function SearchBar({ onSearch }: SearchBarProps) {
   // Renderiza un input de búsqueda y un botón
   return (
     <div className="p-4 m-4">
+      <h1 className="mb-3 font-bold text-3xl">Movie Search</h1>
       <input
         type="text"
         placeholder="Search for movies..."

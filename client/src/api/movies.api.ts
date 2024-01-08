@@ -9,3 +9,8 @@ export const getMovies = async (movie: string): Promise<Movie[]> => {
   const response = await moviesApi.get(`/scrape/?q=${movie}`);
   return response.data.movies;
 };
+
+export const getMoviesByGenre = async (genre: string): Promise<Movie[]> => {
+  const res = await moviesApi.get(`/list/?genres=${genre}`);
+  return res.data.movies;
+};

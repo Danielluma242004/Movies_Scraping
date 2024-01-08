@@ -84,7 +84,7 @@ class MovieGenres(APIView):
                 img_tag = movie.find('img', class_='ipc-image')
                 img_src = img_tag.get('src') if img_tag else None
 
-                movie_obj = {'title': title, 'year':year, 'duration':duration, 'rating':rating, 'stars': stars, 'metascore': metascore, 'movie_description': movie_description, 'vots':vots, 'img_src': img_src}
+                movie_obj = {'title': title, 'year':year, 'duration':duration, 'rating':rating, 'stars': stars, 'metascore': metascore, 'movie_description': movie_description, 'vots':vots, 'image': img_src}
                 movies_by_genre_list.append(movie_obj)
             
             return Response({'movies': movies_by_genre_list})
