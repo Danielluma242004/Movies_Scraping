@@ -44,7 +44,7 @@ export function MovieCard({ movieQuery }: MovieCardProps) {
   // Renderiza diferentes componentes según el estado del componente
   if (loading) {
     return (
-      <div role="status" className="m-4 p-4">
+      <div role="status" className="ml-40">
         <svg
           aria-hidden="true"
           className="inline w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -72,14 +72,20 @@ export function MovieCard({ movieQuery }: MovieCardProps) {
 
   // Renderiza la lista de películas si no hay errores ni carga en progreso
   return (
-    <div className="m-4 p-4 ">
+    <div className="m-4 mt-0 p-4 ">
       <div className="border-solid border-2 border-zinc-400 rounded-lg">
         {movies.map((movie, index) => (
           <div key={index} className=" p-3 m-4 w-auto">
             <div className="flex">
               {movie.image && <img src={movie.image} alt={movie.title} />}{" "}
               <div className="ml-4">
-                <h3 className="font-bold">{movie.title}</h3>
+                <a
+                  href={`https://www.imdb.com/${movie.source || "#"}`}
+                  className="font-bold text-md hover:text-zinc-500"
+                >
+                  {movie.title}
+                </a>
+
                 <p className="text-zinc-500">{movie.year}</p>
                 <p className="text-zinc-500">{movie.cast}</p>
               </div>

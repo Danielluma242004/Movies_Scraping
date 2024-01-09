@@ -10,48 +10,105 @@ export function GenreButtons({ onSearch }: SearchGenre) {
     onSearch(genre);
   };
   return (
-    <div className="m-4 p-4">
-      <h1 className="mb-3 font-bold text-3xl">Movies Genres</h1>
-      <ul className="flex">
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("action")}>Action</button>
+    <div className="m-4 mb-0 p-4">
+      <h1 className="flex items-center mb-3 font-bold text-3xl">
+        <p className="mr-1 text-yellow-500 text-6xl font-thin">I</p>Movies
+        Genres
+      </h1>
+      <ul className="flex flex-wrap">
+        <li>
+          <button
+            onClick={() => handleButtonClick("action")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white text-md"
+          >
+            Action
+          </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("adventure")}>
+        <li>
+          <button
+            onClick={() => handleButtonClick("adventure")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
             Adventure
           </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("animation")}>
+        <li>
+          <button
+            onClick={() => handleButtonClick("animation")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
             Animation
           </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("comedy")}>Comedy</button>
+        <li>
+          <button
+            onClick={() => handleButtonClick("comedy")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
+            Comedy
+          </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("crime")}>Crime</button>
+        <li>
+          <button
+            onClick={() => handleButtonClick("crime")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
+            Crime
+          </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("drama")}>Drama</button>
+        <li>
+          <button
+            onClick={() => handleButtonClick("drama")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
+            Drama
+          </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("fantasy")}>Fantasy</button>
+        <li>
+          <button
+            onClick={() => handleButtonClick("fantasy")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
+            Fantasy
+          </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("horror")}>Horror</button>
+        <li>
+          <button
+            onClick={() => handleButtonClick("horror")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
+            Horror
+          </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("mistery")}>Mistery</button>
+        <li>
+          <button
+            onClick={() => handleButtonClick("mistery")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
+            Mistery
+          </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("romance")}>Romance</button>
+        <li>
+          <button
+            onClick={() => handleButtonClick("romance")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
+            Romance
+          </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("sci-fi")}>Sci-Fi</button>
+        <li>
+          <button
+            onClick={() => handleButtonClick("sci-fi")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
+            Sci-Fi
+          </button>
         </li>
-        <li className="mr-3 py-1 px-2 text-blue-700 border-solid border-2 border-blue-700 rounded-full">
-          <button onClick={() => handleButtonClick("thriller")}>
+        <li>
+          <button
+            onClick={() => handleButtonClick("thriller")}
+            className="mr-3 mb-3 py-1 px-2 text-blue-800 border-solid border-2 border-blue-800 rounded-full hover:bg-blue-100 focus:bg-blue-700 focus:text-white"
+          >
             Thriller
           </button>
         </li>
@@ -69,9 +126,15 @@ export function MoviesGenre() {
   return (
     <div>
       <GenreButtons onSearch={handleSearch} />
-      {""}
-      <MovieCardbyGenre movieQuery={searchQuery} />
-      {""}
+      {searchQuery !== "" ? (
+        <div>
+          <h1 className="p-4 m-4 mb-0 mt-0 font-bold text-3xl flex items-center">
+            <p className="mr-1 text-yellow-500 text-6xl font-thin">I</p>Search
+            for "{searchQuery}"
+          </h1>
+          <MovieCardbyGenre movieQuery={searchQuery} />
+        </div>
+      ) : null}
     </div>
   );
 }

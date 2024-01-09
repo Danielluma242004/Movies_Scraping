@@ -44,7 +44,7 @@ export function MovieCardbyGenre({ movieQuery }: MovieCardProps) {
   // Renderiza diferentes componentes según el estado del componente
   if (loading) {
     return (
-      <div role="status" className="m-4 p-4">
+      <div role="status" className="ml-96">
         <svg
           aria-hidden="true"
           className="inline w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -72,28 +72,56 @@ export function MovieCardbyGenre({ movieQuery }: MovieCardProps) {
 
   // Renderiza la lista de películas si no hay errores ni carga en progreso
   return (
-    <div className="m-4 p-4 ">
+    <div className="m-4 mt-0 p-4 ">
       <div className="border-solid border-2 border-zinc-400 rounded-lg">
         {movies.map((movie, index) => (
           <div key={index} className=" p-3 m-4 w-auto">
             <div className="flex">
               {movie.image && <img src={movie.image} alt={movie.title} />}{" "}
               <div className="ml-4">
-                <h3 className="font-bold">{movie.title}</h3>
+                <a
+                  href={`https://www.imdb.com/${movie.source || "#"}`}
+                  className="font-bold text-md hover:text-zinc-500"
+                >
+                  {movie.title}
+                </a>
                 <div className="flex">
-                  <p className="text-zinc-500">{movie.year}</p>
-                  <p className="text-zinc-500">{movie.duration}</p>
+                  <p className="text-zinc-500 mr-4">{movie.year}</p>
+                  <p className="text-zinc-500 mr-4">{movie.duration}</p>
                   <p className="text-zinc-500">{movie.rating}</p>
                 </div>
-                <div className="flex">
-                  <p className="text-zinc-500">{movie.stars}</p>
-                  <p className="text-zinc-500">{movie.metascore}</p>
+                <div className="flex items-center mt-2">
+                  <div className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="text-yellow-500 size-6 mr-1"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      role="presentation"
+                    >
+                      <path d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z"></path>
+                    </svg>
+                    <p className="text-zinc-500">{movie.stars}</p>
+                  </div>
+                  {movie.metascore && (
+                    <div className="flex items-center">
+                      <p className="ml-4 bg-red-600 text-white size-5 p-1 flex items-center justify-center">
+                        {movie.metascore}
+                      </p>
+                      <p className="text-zinc-500 text-sm ml-2">Metascore</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-            <p className="text-zinc-500">{movie.movie_description}</p>
-            <p className="text-zinc-500">{movie.vots}</p>
-            <hr className="mt-1" />
+            <p className=" mt-2 text-black">{movie.movie_description}</p>
+            {movie.vots && (
+              <div className="flex items-center mt-2">
+                <p className=" font-bold">Vots</p>
+                <p className="text-black font-normal ml-3">{movie.vots}</p>
+              </div>
+            )}
+            <hr className="mt-2" />
           </div>
         ))}
       </div>

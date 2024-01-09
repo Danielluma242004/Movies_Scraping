@@ -9,4 +9,5 @@ export interface Movie {
   vots: string | string | null;
   cast: string | null;
   image: string | null;
+  source: string;
 }

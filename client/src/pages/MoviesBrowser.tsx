@@ -25,22 +25,31 @@ export function SearchBar({ onSearch }: SearchBarProps) {
 
   // Renderiza un input de búsqueda y un botón
   return (
-    <div className="p-4 m-4">
-      <h1 className="mb-3 font-bold text-3xl">Movie Search</h1>
-      <input
-        type="text"
-        placeholder="Search for movies..."
-        className="border-solid border-2 border-black mr-4 p-1"
-        value={searchQuery}
-        onChange={handleInputChange}
-        onKeyPress={handleEnterKeyPress}
-      />
-      <button
-        className="bg-green-400 text-white p-1 rounded-xl"
-        onClick={() => onSearch(searchQuery)}
-      >
-        Search
-      </button>
+    <div className="px-4 py-2 m-4">
+      <h1 className="mb-4 text-5xl">Movie Search</h1>
+      <div className="w-96 text-zinc-400 p-2 flex border-solid border-2 border-black  active:border-yellow-500 rounded-md justify-between items-center">
+        <input
+          type="text"
+          className="focus:outline-none w-full"
+          placeholder="Search for movies..."
+          value={searchQuery}
+          onChange={handleInputChange}
+          onKeyPress={handleEnterKeyPress}
+        />
+        <button onClick={() => onSearch(searchQuery)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            role="presentation"
+          >
+            <path fill="none" d="M0 0h24v24H0V0z"></path>
+            <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }
@@ -58,10 +67,17 @@ export function MoviesBrowser() {
   // Renderiza el componente SearchBar y el componente MovieCard
   return (
     <div>
-      <SearchBar onSearch={handleSearch} />{" "}
-      {/* Pasa la función handleSearch como prop a SearchBar */}
-      <MovieCard movieQuery={searchQuery} />{" "}
-      {/* Pasa el estado de la consulta como prop a MovieCard */}
+      <SearchBar onSearch={handleSearch} />
+      {searchQuery !== "" ? (
+        <div>
+          <h1 className="p-4 m-4 mb-0 font-bold text-3xl flex items-center">
+            <p className="mr-1 text-yellow-500 text-6xl font-thin">I</p>Search
+            for "{searchQuery}"
+          </h1>
+          \
+          <MovieCard movieQuery={searchQuery} />
+        </div>
+      ) : null}
     </div>
   );
 }

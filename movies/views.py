@@ -36,7 +36,9 @@ class MovieScraperView(APIView):
                 cast = cast_span.text.strip() if cast_span else None
                 img_tag = movie.find('img', class_='ipc-image')
                 img_src = img_tag.get('src') if img_tag else None
-                movie_obj = {'title': title, 'year': year, 'cast': cast, 'image': img_src}
+                movie_source_element = movie.find('a', href=True)
+                movie_source = movie_source_element.get('href') if movie_source_element else None
+                movie_obj = {'title': title, 'year': year, 'cast': cast, 'image': img_src, 'source': movie_source,}
                 movies_list.append(movie_obj)
 
             return Response({'movies': movies_list})
@@ -84,7 +86,10 @@ class MovieGenres(APIView):
                 img_tag = movie.find('img', class_='ipc-image')
                 img_src = img_tag.get('src') if img_tag else None
 
-                movie_obj = {'title': title, 'year':year, 'duration':duration, 'rating':rating, 'stars': stars, 'metascore': metascore, 'movie_description': movie_description, 'vots':vots, 'image': img_src}
+                movie_source_element = movie.find('a', href=True)
+                movie_source = movie_source_element.get('href') if movie_source_element else None
+
+                movie_obj = {'title': title, 'year':year, 'duration':duration, 'rating':rating, 'stars': stars, 'metascore': metascore, 'movie_description': movie_description, 'vots':vots, 'image': img_src, 'source': movie_source,}
                 movies_by_genre_list.append(movie_obj)
             
             return Response({'movies': movies_by_genre_list})
